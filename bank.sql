@@ -27,13 +27,18 @@ FOREIGN KEY (id_filial) REFERENCES filial(id_filial)
 
 
 
-CREATE TABLE kards(
+CREATE TABLE   acc(
 id_klient			 INT,
-id_kard SERIAL NOT NULL PRIMARY KEY,
-passkey  			 INT,
-type_kard			 VARCHAR(10),
+id_acc SERIAL NOT NULL PRIMARY KEY,
 balance				 MONEY,
 FOREIGN KEY (id_klient) REFERENCES klients(id_klient)
+); 
+
+CREATE TABLE kards(
+id_card SERIAL NOT NULL PRIMARY KEY,
+id_acc INT,
+passkey INT,
+FOREIGN KEY (id_acc) REFERENCES acc(id_acc)
 );
 
 CREATE TABLE terminals(
